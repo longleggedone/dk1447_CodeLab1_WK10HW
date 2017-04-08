@@ -20,7 +20,7 @@ public class AsteroidData {
     public AsteroidData(string fileName){
 		JSONNode jason = UtilScript.ReadJSONFromFile(Application.dataPath, fileName);
 
-		position= new Vector3(
+		position = new Vector3(
 			jason[POS_X].AsFloat,
 			jason[POS_Y].AsFloat,
 			jason[POS_Z].AsFloat);
@@ -32,7 +32,21 @@ public class AsteroidData {
     }
 
 
-	public AsteroidData(Vector3 position, Vector3 scale){
+    public AsteroidData(JSONClass jason)
+    {
+        position = new Vector3(
+            jason[POS_X].AsFloat,
+            jason[POS_Y].AsFloat,
+            jason[POS_Z].AsFloat);
+
+        scale = new Vector3(
+            jason[SCALE_X].AsFloat,
+            jason[SCALE_Y].AsFloat,
+            jason[SCALE_Z].AsFloat);
+    }
+
+
+    public AsteroidData(Vector3 position, Vector3 scale){
 		this.position = position;
 		this.scale = scale;
 	}

@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Loader : MonoBehaviour {
 
-	// Use this for initialization
 	void Start () {
-		AsteroidData loadAD = new AsteroidData("Asteroid.txt");
 
-		print(loadAD.position);
+        AsteroidManager am = new AsteroidManager();
+
+        AsteroidData[] asteroidDatas = am.ReadAsteroids();
+
 	}
 	
 	// Update is called once per frame

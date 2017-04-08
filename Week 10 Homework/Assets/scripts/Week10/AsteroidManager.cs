@@ -28,4 +28,20 @@ public class AsteroidManager {
     {
         UtilScript.WriteJSONtoFile(Application.dataPath, "SavedAsteroids.txt", asteroidArray);
     }
+
+
+    public AsteroidData[] ReadAsteroids()
+    {
+        // Read array from file.
+        asteroidArray = UtilScript.ReadJSONFromFile(Application.dataPath, "SavedAsteroids.txt") as JSONArray;
+
+        AsteroidData[] asteroidDatas = new AsteroidData[asteroidArray.Count];
+
+        for (int i = 0; i < asteroidArray.Count; i++)
+        {
+            asteroidDatas[i] = new AsteroidData(asteroidArray[i] as JSONClass);
+        }
+
+        return asteroidDatas;
+    }
 }
