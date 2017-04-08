@@ -6,18 +6,15 @@ public class Saver : MonoBehaviour {
 
 	void Start ()
     {
-		GameObject[] asteroids = GameObject.FindGameObjectsWithTag("Asteroid");
+        // Declare a new AsteroidManager.
+        AsteroidManager am = new AsteroidManager();
 
-		Vector3 pos = asteroids[0].transform.position;
-		Vector3 scale = asteroids[0].transform.localScale;
+        // Go through all asteroids in the scene.
+		foreach(GameObject asteroid in GameObject.FindGameObjectsWithTag("Asteroid"))
+        {
+            am.SaveAsteroid(asteroid);
+        }
 
-		AsteroidData ad = new AsteroidData(pos, scale);
-
-		ad.Save("Asteroid.txt");
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+        am.WriteArray();
 	}
 }
