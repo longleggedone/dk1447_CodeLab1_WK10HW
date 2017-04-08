@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Saver : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 		GameObject[] asteroids = GameObject.FindGameObjectsWithTag("Asteroid");
 
 		Vector3 pos = asteroids[0].transform.position;
